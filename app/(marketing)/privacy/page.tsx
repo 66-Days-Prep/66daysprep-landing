@@ -8,7 +8,7 @@ return (
 </Heading>
 <VStack spacing={6} align="stretch">
 <Text>
- 66 Days Prep values your privacy and is committed to protecting your personal data. This Privacy Policy explains how we handle your information when you use our iOS application.
+ 66 Days Prep values your privacy and we are committed to protecting your personal data. This Privacy Policy explains how we handle your information when you use our iOS application.
 </Text>
 <Box>
 <Heading as="h2" size="md" mb={2}>
