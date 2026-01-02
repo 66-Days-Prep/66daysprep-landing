@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { FiCheckCircle, FiXCircle, FiSmartphone } from 'react-icons/fi'
 
-const API_BASE_URL = 'https://8pb22tdpkb.us-east-1.awsapprunner.com'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://8pb22tdpkb.us-east-1.awsapprunner.com'
 
 type VerificationState = 'loading' | 'success' | 'error'
 

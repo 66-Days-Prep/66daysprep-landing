@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react'
 import { FiCheckCircle, FiXCircle, FiSmartphone, FiLock } from 'react-icons/fi'
 
-const API_BASE_URL = 'https://8pb22tdpkb.us-east-1.awsapprunner.com'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://8pb22tdpkb.us-east-1.awsapprunner.com'
 
 type ResetState = 'form' | 'loading' | 'success' | 'error'
 
@@ -40,6 +40,15 @@ function ResetPasswordContent() {
     // Validation
     if (password.length < 8) {
       setFormError('Password must be at least 8 characters')
+      return
+    }
+
+    const hasUppercase = /[A-Z]/.test(password)
+    const hasLowercase = /[a-z]/.test(password)
+    const hasNumber = /[0-9]/.test(password)
+
+    if (!hasUppercase || !hasLowercase || !hasNumber) {
+      setFormError('Password must contain uppercase, lowercase, and a number')
       return
     }
 
@@ -107,7 +116,7 @@ function ResetPasswordContent() {
               <FormLabel>New Password</FormLabel>
               <Input
                 type="password"
-                placeholder="Min 8 characters"
+                placeholder="8+ chars, upper, lower, number"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 size="lg"
